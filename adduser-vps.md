@@ -1,55 +1,62 @@
-# Criando usuários na VPS Ubuntu
-Abaixo está um guia passo a passo para criar um novo usuário na sua VPS:
+# Criando Usuários na VPS Ubuntu
 
-1. Conecte-se à VPS:
-   Use um cliente SSH, como o OpenSSH, para se conectar à sua VPS. Por exemplo:
-   ```bash
-   ssh root@endereco_ip_da_vps
-   ```
+Este guia passo a passo explica como criar um novo usuário na sua VPS Ubuntu.
 
-   Substitua `seu_usuario` pelo nome de usuário atual da VPS e `endereco_ip_da_vps` pelo endereço IP da sua VPS.
+## 1. Conectar-se à VPS
+Use um cliente SSH, como o OpenSSH, para se conectar à sua VPS:
 
-2. Adicione um novo usuário:
-   No terminal SSH da VPS, digite o seguinte comando para criar um usuário:
-   ```bash
-   sudo adduser novo_usuario
-   ```
+```bash
+ssh root@endereco_ip_da_vps
+```
 
-   Substitua `novo_usuario` pelo nome do usuário que deseja criar. Você será solicitado a definir uma senha para esse usuário e preencher algumas informações adicionais, se desejar.
+Substitua `endereco_ip_da_vps` pelo endereço IP da sua VPS.
 
-3. (Opcional) Adicione o novo usuário ao grupo "sudo" (administrativo):
-   Se você deseja que o novo usuário tenha privilégios de administrador, adicione-o ao grupo "sudo" executando este comando:
-   ```bash
-   sudo usermod -aG sudo novo_usuario
-   ```
+## 2. Criar um Novo Usuário
+No terminal SSH da VPS, crie um usuário com o seguinte comando:
 
-   Isso permitirá que o novo usuário execute comandos com privilégios administrativos usando `sudo`.
+```bash
+sudo adduser novo_usuario
+```
 
-4. (Opcional) Configurar autenticação de chave SSH (recomendado):
-   Para uma segurança aprimorada, você pode configurar a autenticação de chave SSH para o novo usuário. Isso evitará a necessidade de digitar a senha sempre que fizer login via SSH.
+Substitua `novo_usuario` pelo nome do usuário desejado. Você será solicitado a definir uma senha e preencher algumas informações opcionais.
 
-   a. No seu computador local, abra um terminal (caso esteja no Windows, use o Git Bash ou o WSL) e digite o seguinte comando para gerar um par de chaves SSH (caso ainda não tenha um):
-   ```bash
-   ssh-keygen
-   ```
+## 3. Conceder Privilégios Administrativos (Opcional)
+Se deseja que o novo usuário tenha privilégios administrativos, adicione-o ao grupo `sudo`:
 
-   b. Pressione Enter para aceitar o local padrão para salvar as chaves.
+```bash
+sudo usermod -aG sudo novo_usuario
+```
 
-   c. Agora, copie a chave pública para a VPS usando o comando:
-   ```bash
-   ssh-copy-id novo_usuario@endereco_ip_da_vps
-   ```
+Isso permitirá que o usuário execute comandos administrativos usando `sudo`.
 
-   d. Insira a senha do novo usuário quando solicitado.
+## 4. Configurar Autenticação de Chave SSH (Recomendado)
+A autenticação de chave SSH melhora a segurança e evita a necessidade de digitar a senha ao fazer login.
 
-   A partir de agora, você pode fazer login no servidor usando a autenticação de chave SSH, o que é mais seguro do que usar senhas.
+### a) Gerar um Par de Chaves SSH
+No seu computador local, gere um par de chaves SSH (caso ainda não tenha):
 
-5. Desconecte-se da VPS:
-   Quando terminar de criar o novo usuário e configurar tudo conforme necessário, você pode sair da sessão SSH digitando:
-   ```bash
-   exit
-   ```
+```bash
+ssh-keygen
+```
 
-Agora, você tem um novo usuário criado em sua VPS Ubuntu. Lembre-se de usar o nome do novo usuário ao fazer login na próxima vez que você se conectar via SSH.
+Pressione Enter para aceitar o local padrão de salvamento.
 
-Caso queira se conectar ao github siga os passos: https://gist.github.com/misterioso013/77fdf70ae956c5b08e19700d264b95ae
+### b) Copiar a Chave Pública para a VPS
+Use o seguinte comando para copiar a chave pública para o novo usuário na VPS:
+
+```bash
+ssh-copy-id novo_usuario@endereco_ip_da_vps
+```
+
+Digite a senha do novo usuário quando solicitado.
+
+Agora, você pode se conectar à VPS usando a chave SSH sem precisar digitar a senha.
+
+## 5. Desconectar-se da VPS
+Após configurar o usuário, saia da sessão SSH:
+
+```bash
+exit
+```
+
+Agora, seu novo usuário está pronto para uso na VPS Ubuntu!
