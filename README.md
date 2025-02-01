@@ -9,3 +9,9 @@ Este repositório contém guias úteis para gerenciar sua VPS Ubuntu.
 
 - [Atualização do Servidor VPS Ubuntu 20.04](update-server.md)
   Este guia contém os comandos necessários para atualizar e manter um servidor VPS rodando Ubuntu 20.04, incluindo a atualização de pacotes e do kernel.
+
+- [Como Fazer o DROP de uma Database no PostgreSQL](drop-postgreSQL.md)
+  Este guia explica como excluir uma database no PostgreSQL, incluindo a finalização de conexões ativas e o comando para remover a database.
+
+- [Atualizando a Evolution API com Docker Compose](evolution-api-update.md)
+  Este guia explica como atualizar a Evolution API usando Docker Compose, incluindo a parada do container atual e a verificação da atualização.
