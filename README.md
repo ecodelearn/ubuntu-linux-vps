@@ -15,3 +15,6 @@ Este repositório contém guias úteis para gerenciar sua VPS Ubuntu.
 
 - [Atualizando a Evolution API com Docker Compose](evolution-api-update.md)
   Este guia explica como atualizar a Evolution API usando Docker Compose, incluindo a parada do container atual e a verificação da atualização.
+  
+- [Configurando o ngrok para Servidor Flask](#configurando-o-ngrok-para-servidor-flask)
+  Tutorial Ngrok para flask local ou nuvem.
